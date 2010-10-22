@@ -34,7 +34,7 @@ a {outline: none}
   position: absolute;
   top: 1px;
   left: 50px;
-  background: url(cuorizini.png) top left no-repeat;
+  background: url(/cuorizini.png) top left no-repeat;
   width: 600px;
   height: 487px;
 }
