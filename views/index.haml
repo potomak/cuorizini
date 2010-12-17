@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html;charset=utf-8'}
+    / Begin Dublin Core Metadata
+    %meta{:name => 'DC.Title', :content => '♥ cuorizini ♥'}
+    %meta{:name => "DC.Creator", :content => "johnnyaboh"}
+    %meta{:name => "DC.Description", :content => "Makes your life sweet"}
+    %meta{:name => "DC.Publisher", :content => "Pioz"}
+    %meta{:name => "DC.Date", :scheme => "ISO8601", :content => "2010-12-17"}
+    %meta{:name => "DC.Format", :scheme => "MIME", :content => "text/html"}
+    %meta{:name => "DC.Language", :scheme => "RFC1766", :content => "en"}
+    / End Dublin Core Metadata
+
+    %title= '♥ cuorizini ♥'
+
+    %script{:src => '/sm2/soundmanager2-nodebug-jsmin.js', :type => 'text/javascript'}
+    %script{:src => '/play_cuorizini.js', :type => 'text/javascript'}
+    %link{:href => '/style.css', :media => 'all', :rel => 'stylesheet', :type => 'text/css'}
+
+  %body
+    #container
+      #cuorizini_container
+        %a{:href => '#', :onclick => "soundManager.play('cuorizini'); return false;"}= '♥ cuorizini ♥'
+
+      #footer
+        %span#tweet
+          %a{:href => "http://twitter.com/share", :class => "twitter-share-button", 'data-count' => "none"}= 'Tweet'
+          %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
+
+        %span#facebook
+          %iframe{ :src => "http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.focustheweb.com%2Fcuorizini&amp;layout=button_count&amp;show_faces=true&amp;width=100&amp;action=like&amp;colorscheme=light&amp;height=21", :scrolling => "no", :frameborder => "0", :style => "border:none; overflow:hidden; width:100px; height:21px;", :allowTransparency => "true"}

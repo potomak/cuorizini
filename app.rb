@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
+require 'haml'
 
-get '/' do 
-  redirect '/index.html'
+get '/' do
+  haml :index
 end
