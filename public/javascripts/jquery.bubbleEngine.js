@@ -46,13 +46,15 @@
         options.RenewBubbles = 'off';
         options.couter = 0;
       };
-      this.addBubbles = function(number) {
+      this.addBubbles = function(number, particleSourceX, particleSourceY, delay) {
         if (!number) number = 25;
+        var del;
+        delay ? del = delay : del = Math.floor(Math.random()*3000);
         for (i=1;i<=number;i++) {
           options.couter++;
           window.setTimeout(function() {
-            GenerateElement();
-          }, Math.floor(Math.random()*3000));
+            GenerateElement(particleSourceX, particleSourceY);
+          }, del);
         }
         // Add hook onStart by Pioz
         if (options.onStart !== null && options.RenewBubbles == 'off')
@@ -73,21 +75,25 @@
       }
 
       //-----------------------------------------------------------------------
-      function GenerateElement(){
-        var animationEndY     = options.particleSourceY + options.gravity + GetRandom( -options.particleScatteringY, options.particleScatteringY );
+      function GenerateElement(particleSourceX, particleSourceY){
+        var partSourceX, partSourceY;
+        particleSourceX ? partSourceX = particleSourceX : partSourceX = options.particleSourceX;
+        particleSourceY ? partSourceY = particleSourceY : partSourceY = options.particleSourceY;
+
+        var animationEndY     = partSourceY + options.gravity + GetRandom( -options.particleScatteringY, options.particleScatteringY );
         if (options.particleDirection == 'left') {
-          var animationEndX     = options.particleSourceX - GetRandom( 0, options.particleScatteringX );
+          var animationEndX     = partSourceX - GetRandom( 0, options.particleScatteringX );
         } else if (options.particleDirection == 'right') {
-          var animationEndX     = options.particleSourceX + GetRandom( 0, options.particleScatteringX );
+          var animationEndX     = partSourceX + GetRandom( 0, options.particleScatteringX );
         } else if (options.particleDirection == 'center') {
-          var animationEndX     = options.particleSourceX + GetRandom( -options.particleScatteringX, options.particleScatteringX );
+          var animationEndX     = partSourceX + GetRandom( -options.particleScatteringX, options.particleScatteringX );
         }
         var animationDuration = options.particleAnimationDuration + GetRandom( 0, options.particleAnimationVariance );
         var particleSize      = GetRandom( options.particleSizeMin, options.particleSizeMax )
         var div = jQuery('<img class="bubble '+options.ids+'" src="'+options.imgSource+'">').css({
           position: 'absolute',
-          top:      options.particleSourceY,
-          left:     options.particleSourceX,
+          top:      partSourceY,
+          left:     partSourceX,
           width:    particleSize,
           height:   particleSize
         }).appendTo('body');

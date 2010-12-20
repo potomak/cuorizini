@@ -25,17 +25,11 @@ soundManager.onready(function() {
 var cuorizini = null;
 var blocked = false;
 $(document).ready(function() {
-  var w = $('#cuorizini_container').width();
-  var h = $('#cuorizini_container').height();
-  var left = $('#cuorizini_container').position().left;
-  var top = $('#cuorizini_container').position().top;
-  var x = left + (w/2);
-  var y = top + (h/2);
+  $('#make_your_life_sweet').click(makes_your_life_sweet);
+  
   cuorizini = $('fn').BubbleEngine({
     particleSizeMin:           10,
     particleSizeMax:           60,
-    particleSourceX:           x,
-    particleSourceY:           y,
     particleDirection:         'center',
     particleAnimationDuration: 5000,
     particleAnimationVariance: 2000,
@@ -43,17 +37,15 @@ $(document).ready(function() {
     particleScatteringY:       300,
     imgSource:                 '/images/heart.png',
     RenewBubbles:              'off',
-    gravity:                   -100,
-    onStart:                   function(){blocked = true;},
-    onComplete:                function(){blocked = false;}
+    gravity:                   -100
   });
 });
 
 // Events
 
-function makes_your_life_sweet() {
-  if (!blocked)
-    cuorizini.addBubbles(20);
+function makes_your_life_sweet(clickEvent) {
+  // generate 1 bubble at mouse click very fast (1 msec)
+  cuorizini.addBubbles(1, clickEvent.pageX, clickEvent.pageY, 1);
   soundManager.play('cuorizini');
   return false;
 }
