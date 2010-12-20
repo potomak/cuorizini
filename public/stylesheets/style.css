@@ -28,13 +28,12 @@ a {outline: none}
   margin-top: 50px;
 }
 #cuorizini_container a {
-  z-index: 300;
   text-indent: -1000em;
   display: block;
   position: absolute;
   top: 1px;
   left: 50px;
-  background: url(/cuorizini.png) top left no-repeat;
+  background: url(/images/cuorizini.png) top left no-repeat;
   width: 600px;
   height: 487px;
 }
