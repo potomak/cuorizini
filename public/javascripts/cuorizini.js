@@ -24,9 +24,10 @@ soundManager.onready(function() {
 
 var cuorizini = null;
 var blocked = false;
+var heart = 1;
 $(document).ready(function() {
   $('#make_your_life_sweet').click(makes_your_life_sweet);
-  
+
   cuorizini = $('fn').BubbleEngine({
     particleSizeMin:           10,
     particleSizeMax:           60,
@@ -39,13 +40,21 @@ $(document).ready(function() {
     RenewBubbles:              'off',
     gravity:                   -100
   });
+
+  $(document).keydown(function(e) {
+    if(e.keyCode == 16) heart = 25;
+  });
+  $(document).keyup(function(e) {
+    heart = 1;
+  });
 });
 
 // Events
 
 function makes_your_life_sweet(clickEvent) {
   // generate 1 bubble at mouse click very fast (1 msec)
-  cuorizini.addBubbles(1, clickEvent.pageX, clickEvent.pageY, 1);
+  cuorizini.addBubbles(heart, clickEvent.pageX, clickEvent.pageY, 1);
   soundManager.play('cuorizini');
   return false;
 }
+
