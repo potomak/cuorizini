@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'yaml'
+require 'logger'
 require 'active_record'
 
 desc "Load environment configuration"
