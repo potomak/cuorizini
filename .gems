@@ -1,2 +1,4 @@
 sinatra --version '>= 1.0'
 haml
+yaml
+active_record

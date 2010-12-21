@@ -55,6 +55,7 @@ function makes_your_life_sweet(clickEvent) {
   // generate 1 bubble at mouse click very fast (1 msec)
   cuorizini.addBubbles(heart, clickEvent.pageX, clickEvent.pageY, 1);
   soundManager.play('cuorizini');
+  $.post('/cuorizino')
   return false;
 }
 
