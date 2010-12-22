@@ -23,7 +23,6 @@ soundManager.onready(function() {
 // Bubble Engine setup
 
 var cuorizini = null;
-var blocked = false;
 var heart = 1;
 $(document).ready(function() {
   $('#make_your_life_sweet').click(makes_your_life_sweet);

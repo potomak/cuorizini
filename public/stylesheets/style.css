@@ -1,25 +1,24 @@
 body {
   margin-top: 1.0em;
   background-color: #ffffff;
-  font-family: Helvetica , Arial, sans;
+  font-family: Helvetica, Arial, sans;
   color: #000000;
 }
+
+h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
+h1 .small { font-size: 0.4em; }
+h1 a { text-decoration: none; }
+h2 { font-size: 1.5em; color: #000000; }
+h3 { text-align: center; color: #000000; }
+a { color: #000000; outline: none; }
+pre { background: #000; color: #fff; padding: 15px; }
+hr { border: 0; width: 80%; border-bottom: 1px solid #aaa; }
+
 #container {
   margin: 0 auto;
   width: 700px;
 }
-h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
-h1 .small { font-size: 0.4em; }
-h1 a { text-decoration: none }
-h2 { font-size: 1.5em; color: #000000; }
-h3 { text-align: center; color: #000000; }
-a { color: #000000; }
-pre { background: #000; color: #fff; padding: 15px;}
-hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
 
-#footer {margin-top: 20px;}
-
-a {outline: none}
 #cuorizini_container {
   position: relative;
   width: 100%;
@@ -37,9 +36,10 @@ a {outline: none}
   width: 600px;
   height: 487px;
 }
-#cuorizini_container a:hover {top: 0px}
-#cuorizini_container a:active {top: 2px}
+#cuorizini_container a:hover { top: 0px; }
+#cuorizini_container a:active { top: 2px; }
 
-#tweet {}
-#smoodit {margin-top: 5px;}
+#footer { margin-top: 20px; }
+#tweet { margin-right: 5px; float: left; }
+#smoodit { margin-top: 5px; }
 #facebook {}
