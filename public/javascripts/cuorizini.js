@@ -46,6 +46,8 @@ $(document).ready(function() {
   $(document).keyup(function(e) {
     heart = 1;
   });
+  
+  Geo.initGeolocation();
 });
 
 // Events
@@ -54,7 +56,9 @@ function makes_your_life_sweet(clickEvent) {
   // generate 1 bubble at mouse click very fast (1 msec)
   cuorizini.addBubbles(heart, clickEvent.pageX, clickEvent.pageY, 1);
   soundManager.play('cuorizini');
-  $.post('/cuorizino')
+  var location = Geo.getLocation();
+  var data = location ? {lat: location[0], lng: location[1]} : {};
+  $.post('/cuorizino', data);
   return false;
 }
 

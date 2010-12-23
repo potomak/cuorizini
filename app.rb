@@ -9,7 +9,7 @@ config = YAML.load(File.read('config/database.yml'))
 ActiveRecord::Base.establish_connection config[environment]
 
 class Cuorizini < ActiveRecord::Base
-  attr_accessible :session_id, :user_agent
+  attr_accessible :session_id, :user_agent, :lat, :lng
 end
 
 enable :sessions
@@ -31,7 +31,10 @@ get '/index.html' do
 end
 
 post '/cuorizino' do
-  cuorizino = Cuorizini.find_by_session_id(session[:id]) || Cuorizini.new({:session_id => session[:id], :user_agent => request.user_agent})
+  lat = params[:lat] || nil;
+  lng = params[:lng] || nil;
+  
+  cuorizino = Cuorizini.find_by_session_id(session[:id]) || Cuorizini.new({:session_id => session[:id], :user_agent => request.user_agent, :lat => lat, :lng => lng})
   cuorizino.cuorizini_count = cuorizino.cuorizini_count || 0
   cuorizino.update_attribute(:cuorizini_count, cuorizino.cuorizini_count + 1)
 end
