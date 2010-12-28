@@ -98,7 +98,7 @@
           height:   particleSize
         }).appendTo('body');
         div.animate({
-          opacity:  [0, 'easeOutCubic'],
+          opacity:  [0, 'easeInCirc'],
           left:     animationEndX,
           top:      [animationEndY, 'easeOutCubic']
         }, {
