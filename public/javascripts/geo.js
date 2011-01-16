@@ -22,8 +22,7 @@ var Geo = (function() {
       var geo = navigator.geolocation;
       if (typeof geo === 'undefined') {
         // We don't have W3C geolocation. Try Gears.
-        if (typeof google !== 'undefined' && google.gears &&
-        google.gears.factory.create) {
+        if (typeof google !== 'undefined' && google.gears && google.gears.factory.create) {
           geo = google.gears.factory.create('beta.geolocation');
         }
       }
@@ -47,7 +46,7 @@ var Geo = (function() {
         var coords = POSITION.coords;
         return [coords.latitude, coords.longitude];
       }
-      else if (google.loader.ClientLocation) {
+      else if (typeof google !== 'undefined' && google.loader && google.loader.ClientLocation) {
         return [google.loader.ClientLocation.latitude, google.loader.ClientLocation.longitude];
       }
 

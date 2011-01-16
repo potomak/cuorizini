@@ -59,6 +59,5 @@ function makes_your_life_sweet(clickEvent) {
   var location = Geo.getLocation();
   var data = location ? {lat: location[0], lng: location[1]} : {};
   $.post('/cuorizino', data);
-  return false;
 }
 

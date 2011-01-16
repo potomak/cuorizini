@@ -31,6 +31,11 @@
     %script{:src => '/javascripts/geo.js', :type => 'text/javascript'}
     %script{:src => '/javascripts/cuorizini.js', :type => 'text/javascript'}
     %link{:href => '/stylesheets/style.css', :media => 'all', :rel => 'stylesheet', :type => 'text/css'}
+    
+    %link{:href => '/favicon.ico', :rel => 'shortcut icon'}
+    %link{:href => '/favicon.ico', :rel => 'icon', :type => 'image/ico'}
+    %link{:href => '/images/cuorizini.png', :rel => 'apple-touch-icon'}
+    %link{:href => '/images/cuorizini.png', :rel => 'fluid-icon'}
 
     :javascript
       var _gaq = _gaq || [];
@@ -52,7 +57,7 @@
         = @cuorizini_count
       
       #cuorizini_container
-        %a{:id => "make_your_life_sweet", :href => ''}= '♥ cuorizini ♥'
+        %a{:id => "make_your_life_sweet", :href => "#", :onclick => "return false"}= '♥ cuorizini ♥'
 
       #footer
         #tweet
@@ -61,3 +66,10 @@
 
         #facebook
           %iframe{:src => "http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcuorizini.heroku.com&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=80", :scrolling => "no", :frameborder => "0", :style => "border:none; overflow:hidden; width:450px; height:80px;", :allowTransparency => "true"}
+
+        -#
+          / #society6
+          /   :javascript
+          /     s6_user = "giovanni";
+          /     s6_format = "125x125";
+          /   %script{:src => 'http://www.society6.com/js/show_banner.js', :type => 'text/javascript'}
